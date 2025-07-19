@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    
+    <meta name="docsearch:name" content="uvscaff" />
+    <meta name="docsearch:package_type" content="" />
+    <meta name="docsearch:release" content="1.0" />
+    <meta name="docsearch:version" content="" />
+    
+      <meta name="theme-color" content="#0DCAF0" />
+    
+    
+      <title>uvscaff &mdash; uvscaff 1.0 documentation</title>
+    
+    <link rel="canonical" href="README" />
+          <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" /><!-- add (1) -->
+          <link rel="stylesheet" type="text/css" href="_static/sphinx-nefertiti-default.min.css?v=3139f035" /><!-- add (1) -->
+          <link rel="stylesheet" type="text/css" href="_static/fonts/nunito/stylesheet.css?v=abf98f06" /><!-- add (1) -->
+          <link rel="stylesheet" type="text/css" href="_static/fonts/ubuntu-sans-mono/stylesheet.css?v=8616a587" /><!-- add (1) -->
+          <link rel="stylesheet" type="text/css" href="_static/pygments-dark.css?v=2de69186" /><!-- add (1) -->
+          <link rel="stylesheet" type="text/css" href="_static/pygments-light.css?v=970f37b1" /><!-- add (1) -->
+          <link rel="stylesheet" type="text/css" href="_static/bootstrap-icons.min.css?v=44730005" /><!-- add (1) -->
+        <link rel="index" title="Index" href="genindex.html" />
+        <link rel="search" title="Search" href="search.html" />
+        <link rel="top" title="uvscaff 1.0 documentation" href="#" />
+        <link rel="next" title="Configuration" href="configuration.html" />
+        <link rel="prev" title="uvscaff documentation" href="index.html" />
+    <style>
+      :root {
+        --nftt-body-font-family: "Nunito", var(--nftt-font-sans-serif) !important;
+        --nftt-font-monospace: "Ubuntu Sans Mono", var(--nftt-font-family-monospace) !important;
+        --nftt-project-name-font: var(--nftt-body-font-family);
+        --nftt-documentation-font: var(--nftt-body-font-family);
+        --nftt-doc-headers-font: "Georgia", var(--nftt-documentation-font);}
+
+      h1 *,
+      h2 *,
+      h3 *,
+      h4 *,
+      h5 *,
+      h6 * {
+        font-size: inherit;
+      }
+
+      .light pre,
+      .dark pre {
+        line-height: var(--nftt-pre-line-height, 140%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="back-to-top-container" class="position-fixed start-50 translate-middle-x">
+      <button id="back-to-top" type="button" class="d-none btn btn-neutral btn-sm shadow px-4" data-bs-toggle="button">Back to top</button>
+    </div>
+    <header id="snftt-nav-bar" class="navbar navbar-expand-xl navbar-dark nftt-navbar flex-column fixed-top">
+      <div class="skip-links container-fluid visually-hidden-focusable overflow-hidden justify-content-start flex-grow-1">
+        <div class="border-bottom mb-2 pb-2 w-100">
+          <a class="d-none d-md-inline-flex p-2 m-1" href="#sidebar-filter">Skip to index filter</a>
+          <a class="d-inline-flex p-2 m-1" href="#content">Skip to main content</a>
+        </div>
+      </div>
+      <nav class="container-xxl nftt-gutter flex-nowrap" aria-label="Main navigation">
+        <div class="nftt-navbar-toggler">
+          <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Toggle documentation navigation">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+          <a href="index.html"
+             class="navbar-brand"
+          ><span class="brand-text">uvscaff</span><span class="brand-short-text">uvscaff</span></a>
+        
+        
+        <div class="d-flex d-xl-none">
+          <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttSearch" aria-controls="nfttSearch" aria-label="Search">
+            <i class="bi bi-search"></i>
+          </button>
+          <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttNavbar" aria-controls="nfttNavbar" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+        </div>
+        
+<div class="offcanvas-xl offcanvas-end flex-grow-1" tabindex="-1" id="nfttSearch" aria-labelledby="nfttSearchOffcanvasLabel" data-bs-scroll="true">
+  <div class="offcanvas-header px-4 pb-0">
+    <h5 class="offcanvas-title fw-bold" id="nfttSearchOffcanvasLabel">Search the documentation</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#nfttSearch"></button>
+  </div>
+  <div class="offcanvas-body p-4 pt-0 p-xl-0 ps-xl-4">
+    <hr class="d-xl-none text-white-50">
+    <ul class="navbar-nav flex-row align-items-center flex-wrap ms-md-auto">
+      <li class="nav-item col-12 col-xl-auto">
+        <form id="nftt-search-form" action="search.html" method="get">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control search-input" placeholder="Search" aria-label="Search" aria-describedby="button-search">
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+            <button class="btn btn-primary" type="submit" id="button-search" aria-label="Search"><i class="bi bi-search"></i></button>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </div>
+</div>
+
+        <div class="offcanvas-xl offcanvas-end" tabindex="-1" id="nfttNavbar" aria-labelledby="nfttNavbarOffcanvasLabel" data-bs-scroll="true">
+          <div class="offcanvas-header px-4 pb-0">
+            <div class="offcanvas-title navbar-brand" id="nfttNavbarOffcanvasLabel"><span class="brand-short-text">uvscaff</span></div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#nfttNavbar"></button>
+          </div>
+          <div class="offcanvas-body p-4 pt-0 p-xl-0 px-xl-3">
+            <hr class="d-xl-none text-white-50">
+            <ul class="navbar-nav flex-row align-items-center flex-wrap ms-lg-auto">
+              
+              
+              
+              
+              
+              <!-- lightdark-dropdown.html -->
+<li class="nav-item dropdown">
+  <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-luz" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Change appearance">
+    <i class="bi bi-circle-half" data-snftt-luz-icon-active></i>
+    <span id="snftt-luz-text" class="d-xl-none ms-2">Change appearance</span>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-luz-text">
+    <li>
+      <h6 class="dropdown-header">Change appearance</h6>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center" data-snftt-luz="light" href="#" aria-pressed="false">
+        <span>
+          <i class="bi bi-sun" data-snftt-luz-icon="light"></i>
+        </span>
+        <span class="ms-3">Light</span>
+        <i class="bi bi-check ms-auto"></i>
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center" data-snftt-luz="dark" href="#" aria-pressed="false">
+        <span>
+          <i class="bi bi-moon-stars" data-snftt-luz-icon="dark"></i>
+        </span>
+        <span class="ms-3">Dark</span>
+        <i class="bi bi-check ms-auto"></i>
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item current d-flex align-items-center" data-snftt-luz="default" href="#" aria-pressed="false">
+        <span>
+          <i class="bi bi-circle-half" data-snftt-luz-icon="default"></i>
+        </span>
+        <span class="ms-3">Automatic</span>
+        <i class="bi bi-check ms-auto"></i>
+      </a>
+    </li>
+  </ul>
+</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+    </header>
+
+    <div class="container-fluid flex-grow-1">
+      <div class="nftt-gutter nftt-page">
+        <aside class="nftt-sidebar ">
+          <div class="nftt-sidebar-content">
+            
+            <div class="title d-none d-xl-block">
+              <i class="bi bi-book"></i>&nbsp;&nbsp;<span>Index</span>
+            </div>
+            <div id="sidebar" tabindex="-1" class="offcanvas-xl offcanvas-start" aria-labelledby="nfttSidebarOffcanvasLabel">
+                <!-- sidebartemplate: "globaltoc.html" --><div class="offcanvas-header border-bottom">
+  <h5 class="offcanvas-title fw-bold" id="nfttSidebarOffcanvasLabel">
+    Index
+  </h5>
+  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#sidebar"></button>
+</div>
+
+<div class="offcanvas-body">
+  <nav class="toc" aria-label="Main menu">
+    <div class="mb-3 p-1 pt-3 pb-4 border-bottom">
+      <input id="sidebar-filter" type="text" name="filter" class="form-control form-control-sm" placeholder="index filter" aria-label="index filter">
+    </div>
+    <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">uvscaff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+</ul>
+
+  </nav>
+  <template data-toggle-item-template>
+    <button class="btn btn-sm btn-link toctree-expand" type="button">
+      <i class="bi bi-caret-right"></i>
+      <span class="visually-hidden">Toggle menu contents</span>
+    </button>
+  </template>
+</div>
+            </div>
+            
+          </div>
+        </aside>
+        <article id="content" class="nftt-content" role="main">
+          <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Start</a></li>
+    <li class="breadcrumb-item active" aria-current="page">uvscaff</li>
+  </ol>
+</nav>
+    <p><a class="reference external" href="https://github.com/deeplook/starters/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/deeplook/starters/actions/workflows/ci.yml/badge.svg" /></a>
+<a class="reference external" href="https://github.com/astral-sh/ruff"><img alt="Ruff" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" /></a></p>
+<section id="uvscaff">
+<h1>uvscaff<a class="headerlink" href="#uvscaff" title="Link to this heading">¶</a></h1>
+<p>This is a minimal Python project illustrating how to structure some minimal amount of Python code, and use this functionality as a library, and via an entry point also as a CLI command.</p>
+<section id="how-to-work-on-this-project-for-a-new-developer">
+<h2>How to Work on This Project (For a New Developer)<a class="headerlink" href="#how-to-work-on-this-project-for-a-new-developer" title="Link to this heading">¶</a></h2>
+<p>If you are a developer who wants to contribute to this project, you’ll want to set up a local development environment. This allows you to edit the code, run tests, and see your changes immediately.</p>
+<p><strong>Goal:</strong> To install the package in “editable” mode, where changes to the source code are instantly reflected in your environment without needing to reinstall.</p>
+<p><strong>Steps:</strong></p>
+<ol class="arabic">
+<li><p><strong>Clone the Repository:</strong>
+First, get a local copy of the code.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>&lt;repository-url&gt;
+<span class="nb">cd</span><span class="w"> </span>uvscaff
+</pre></div>
+</div>
+</li>
+<li><p><strong>Create and Activate a Virtual Environment:</strong>
+It’s crucial to work in an isolated Python environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install Dependencies and Pre-commit Hooks:</strong>
+This single command installs all necessary development dependencies and sets up the pre-commit hooks to ensure code quality.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>install
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><p><strong>What does “Editable Mode” actually do?</strong>
+The <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> command uses <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>. The <code class="docutils literal notranslate"><span class="pre">-e</span></code> flag is for an “editable” install. Instead of copying the source code to your virtual environment’s <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> directory, it creates a special link file (a <code class="docutils literal notranslate"><span class="pre">.pth</span></code> file). This file simply contains the absolute path to your project’s <code class="docutils literal notranslate"><span class="pre">src</span></code> directory. When Python starts, it adds this path to <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>, so it knows to find the <code class="docutils literal notranslate"><span class="pre">uvscaff</span></code> package by looking directly at your source files. This is how you can edit the code and have the changes take effect immediately without reinstalling.</p>
+</div></blockquote>
+<ol class="arabic" start="4">
+<li><p><strong>Verify the Setup:</strong>
+Run the linters and tests to ensure everything is working correctly.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>lint<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="how-to-use-this-package-for-a-user">
+<h2>How to Use This Package (For a User)<a class="headerlink" href="#how-to-use-this-package-for-a-user" title="Link to this heading">¶</a></h2>
+<p>There are two primary ways to use this package: as a library in a specific project, or as a globally available command-line tool.</p>
+<section id="as-a-library-in-a-project">
+<h3>1. As a Library in a Project<a class="headerlink" href="#as-a-library-in-a-project" title="Link to this heading">¶</a></h3>
+<p>If you want to use <code class="docutils literal notranslate"><span class="pre">uvscaff</span></code>’s functions in your own Python code, you should install it into your project’s virtual environment.</p>
+<p><strong>Steps:</strong></p>
+<ol class="arabic">
+<li><p><strong>Build the Package:</strong>
+From the <code class="docutils literal notranslate"><span class="pre">uvscaff</span></code> source directory, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>dist
+</pre></div>
+</div>
+<p>This creates a distributable “wheel” file in the <code class="docutils literal notranslate"><span class="pre">dist/</span></code> directory (e.g., <code class="docutils literal notranslate"><span class="pre">dist/uvscaff-0.1.0-py3-none-any.whl</span></code>).</p>
+</li>
+<li><p><strong>Install the Wheel File:</strong>
+In your own project’s virtual environment, install the wheel file.</p>
+<p><strong>Using <code class="docutils literal notranslate"><span class="pre">uv</span></code>:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>/path/to/dist/uvscaff-0.1.0-py3-none-any.whl
+</pre></div>
+</div>
+<p><strong>Using standard <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>/path/to/dist/uvscaff-0.1.0-py3-none-any.whl
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="as-a-global-command-line-tool">
+<h3>2. As a Global Command-Line Tool<a class="headerlink" href="#as-a-global-command-line-tool" title="Link to this heading">¶</a></h3>
+<p>If you want to use the <code class="docutils literal notranslate"><span class="pre">uvscaff</span></code> command from anywhere on your system without activating a virtual environment, you should install it as a “tool”. This is the modern, safe alternative to a global install, as it prevents dependency conflicts.</p>
+<p><strong>How it works:</strong> <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">tool</span> <span class="pre">install</span></code> installs the package into its own isolated virtual environment and adds the command to your system’s <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+<p><strong>Steps:</strong></p>
+<ol class="arabic">
+<li><p><strong>Build the Package:</strong>
+First, create the wheel file if you haven’t already:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>dist
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install with <code class="docutils literal notranslate"><span class="pre">uv</span></code>:</strong>
+Use the <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">tool</span> <span class="pre">install</span></code> command, pointing it to your package.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>uvscaff<span class="w"> </span>--from<span class="w"> </span>dist/uvscaff-0.1.0-py3-none-any.whl
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Note:</strong> The first time you run this, <code class="docutils literal notranslate"><span class="pre">uv</span></code> may instruct you to add its tool <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory to your shell’s <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. Follow the on-screen instructions.</p>
+</div></blockquote>
+</li>
+<li><p><strong>Verify the Installation:</strong>
+You can now run the command from any terminal window.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uvscaff<span class="w"> </span>--help
+</pre></div>
+</div>
+</li>
+<li><p><strong>Managing Tools:</strong>
+You can easily manage your installed tools.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># List all installed tools</span>
+uv<span class="w"> </span>tool<span class="w"> </span>list
+
+<span class="c1"># Uninstall a tool</span>
+uv<span class="w"> </span>tool<span class="w"> </span>uninstall<span class="w"> </span>uvscaff
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="programmatic-usage">
+<h3>3. Programmatic Usage<a class="headerlink" href="#programmatic-usage" title="Link to this heading">¶</a></h3>
+<p>When using <code class="docutils literal notranslate"><span class="pre">uvscaff</span></code> as a library, the host application is responsible for configuring the logging system. For more details, see the <a class="reference internal" href="logging.html"><span class="std std-doc">logging documentation</span></a>.</p>
+</section>
+</section>
+<section id="makefile-targets">
+<h2>Makefile Targets<a class="headerlink" href="#makefile-targets" title="Link to this heading">¶</a></h2>
+<p>This project uses a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> to automate common tasks.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>: Installs dependencies and pre-commit hooks.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">uninstall</span></code>: Uninstalls the package from the local virtual environment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code>: Runs the test suite.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">lint</span></code>: Runs the linter and formatter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">dist</span></code>: Builds the package for distribution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code>: Removes temporary build files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">distclean</span></code>: Removes all temporary files and the virtual environment.</p></li>
+</ul>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
+<p>For details on how to configure the application, please see the <a class="reference internal" href="configuration.html"><span class="std std-doc">configuration documentation</span></a>.</p>
+</section>
+<section id="code-style-and-quality">
+<h2>Code Style and Quality<a class="headerlink" href="#code-style-and-quality" title="Link to this heading">¶</a></h2>
+<p>This project uses a number of tools to enforce code style and quality.</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ruff</span></code></strong>: For linting and formatting.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">mypy</span></code></strong>: For static type checking.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">pre-commit</span></code></strong>: To run checks before each commit.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">pathlib</span></code></strong>: All file paths are handled using <code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code>.</p></li>
+<li><p><strong>Docstrings</strong>: All modules must have docstrings.</p></li>
+</ul>
+</section>
+</section>
+
+</article>
+        <aside class="nftt-toc my-3">
+          
+          <div class="my-sm-1 my-lg-0 ps-xl-3 text-muted">
+            <button class="btn btn-link p-lg-0 mb-2 mb-lg-0 text-decoration-none nftt-toc-toggle d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents"
+            >On this page <i class="ms-2 bi bi-chevron-expand"></i></button>
+            <div class="title d-none d-lg-block">
+              <i class="bi bi-file-earmark-text"></i>&nbsp;&nbsp;<span class="small">On this page</span>
+            </div>
+            <div class="collapse nftt-toc-collapse" id="tocContents">
+              <nav id="TableOfContents">
+                <ul>
+<li><a class="reference internal" href="#">uvscaff</a><ul>
+<li><a class="reference internal" href="#how-to-work-on-this-project-for-a-new-developer">How to Work on This Project (For a New Developer)</a></li>
+<li><a class="reference internal" href="#how-to-use-this-package-for-a-user">How to Use This Package (For a User)</a><ul>
+<li><a class="reference internal" href="#as-a-library-in-a-project">1. As a Library in a Project</a></li>
+<li><a class="reference internal" href="#as-a-global-command-line-tool">2. As a Global Command-Line Tool</a></li>
+<li><a class="reference internal" href="#programmatic-usage">3. Programmatic Usage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#makefile-targets">Makefile Targets</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#code-style-and-quality">Code Style and Quality</a></li>
+</ul>
+</li>
+</ul>
+
+              </nav>
+            </div>
+          </div>
+          
+        </aside>
+      </div>
+    </div>
+
+    <footer class="nftt-footer">
+      <nav id="paginator" class="py-4" aria-label="Documentation navigation">
+    <div class="container">
+      <ul class="pagination justify-content-between mb-0"><li class="d-flex page-item">
+            <a href="index.html" class="d-flex px-5 align-items-end" rel="prev" aria-label="Previous page: uvscaff documentation">
+              <span class="prev-page"><i class="bi bi-caret-left"></i></span>
+              <div class="d-none d-sm-flex flex-column">
+                <span class="text-small text-start text-muted">Previous</span>
+                <span class="underline">uvscaff documentation</span>
+              </div>
+            </a>
+          </li>
+        <li class="d-flex page-item ms-auto">
+            <a href="configuration.html" class="d-flex px-5 align-items-end" rel="next" aria-label="Next page: Configuration">
+              <div class="d-flex flex-column">
+                <span class="text-small text-end text-start text-muted">Next</span>
+                <span class="underline">Configuration</span>
+              </div>
+              <span class="next-page"><i class="bi bi-caret-right"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </nav>
+
+      <div class="py-5 px-4 px-md-3">
+  <div class="container">
+    
+
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <a class="brand-text d-inline-flex align-items-center mb-2 text-decoration-none" href="/" aria-label="uvscaff">
+          <span class="fs-6 fw-bold">uvscaff</span>
+        </a>
+        
+          <ul class="list-unstyled small text-muted">
+            <li>2025, author</li>
+          </ul>
+        
+        
+        <div class="built-with pt-2">
+          Built with <a href="http://sphinx-doc.org">Sphinx 8.2.3</a> and <a href="https://github.com/danirus/sphinx-nefertiti">Nefertiti 0.8.5</a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/docs-versions.js?v=08b0cbfb"></script>
+    <script src="_static/sphinx-nefertiti.min.js?v=51494676"></script>
+    <script src="_static/bootstrap.bundle.min.js?v=ff4e7878"></script>
+  </body>
+</html>

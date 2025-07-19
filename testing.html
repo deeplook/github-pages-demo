@@ -16,9 +16,9 @@
       <meta name="theme-color" content="#0DCAF0" />
     
     
-      <title>uvscaff documentation &mdash; uvscaff 1.0 documentation</title>
+      <title>Testing Strategy &mdash; uvscaff 1.0 documentation</title>
     
-    <link rel="canonical" href="index" />
+    <link rel="canonical" href="testing" />
           <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" /><!-- add (1) -->
           <link rel="stylesheet" type="text/css" href="_static/sphinx-nefertiti-default.min.css?v=3139f035" /><!-- add (1) -->
           <link rel="stylesheet" type="text/css" href="_static/fonts/nunito/stylesheet.css?v=abf98f06" /><!-- add (1) -->
@@ -29,7 +29,8 @@
         <link rel="index" title="Index" href="genindex.html" />
         <link rel="search" title="Search" href="search.html" />
         <link rel="top" title="uvscaff 1.0 documentation" href="#" />
-        <link rel="next" title="uvscaff" href="README.html" />
+        <link rel="next" title="Logging" href="logging.html" />
+        <link rel="prev" title="Configuration" href="configuration.html" />
     <style>
       :root {
         --nftt-body-font-family: "Nunito", var(--nftt-font-sans-serif) !important;
@@ -70,7 +71,7 @@
             <i class="bi bi-list"></i>
           </button>
         </div>
-          <a href="#"
+          <a href="index.html"
              class="navbar-brand"
           ><span class="brand-text">uvscaff</span><span class="brand-short-text">uvscaff</span></a>
         
@@ -187,10 +188,10 @@
       <input id="sidebar-filter" type="text" name="filter" class="form-control form-control-sm" placeholder="index filter" aria-label="index filter">
     </div>
     <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">uvscaff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing Strategy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Testing Strategy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
 </ul>
 
@@ -209,48 +210,89 @@
         <article id="content" class="nftt-content" role="main">
           <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Start</a></li>
-    <li class="breadcrumb-item active" aria-current="page">uvscaff documentation</li>
+    <li class="breadcrumb-item"><a href="index.html">Start</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Testing Strategy</li>
   </ol>
 </nav>
-    <section id="uvscaff-documentation">
-<h1>uvscaff documentation<a class="headerlink" href="#uvscaff-documentation" title="Link to this heading">¶</a></h1>
-<p>Add your content using <code class="docutils literal notranslate"><span class="pre">MyST</span></code> syntax. See the
-<a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/">MyST documentation</a>
-for details.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="README.html">uvscaff</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="README.html#how-to-work-on-this-project-for-a-new-developer">How to Work on This Project (For a New Developer)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#how-to-use-this-package-for-a-user">How to Use This Package (For a User)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#makefile-targets">Makefile Targets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#configuration">Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#code-style-and-quality">Code Style and Quality</a></li>
+    <section id="testing-strategy">
+<h1>Testing Strategy<a class="headerlink" href="#testing-strategy" title="Link to this heading">¶</a></h1>
+<p>This project employs a multi-layered testing strategy to ensure code quality, correctness, and the reliability of our continuous integration (CI) pipeline.</p>
+<section id="unit-and-integration-tests">
+<h2>Unit and Integration Tests<a class="headerlink" href="#unit-and-integration-tests" title="Link to this heading">¶</a></h2>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">pytest</span></code> framework for writing and running our tests. All tests are located in the <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory and follow the standard <code class="docutils literal notranslate"><span class="pre">test_*.py</span></code> naming convention. Our strategy includes both unit and integration tests.</p>
+<section id="unit-tests">
+<h3>Unit Tests<a class="headerlink" href="#unit-tests" title="Link to this heading">¶</a></h3>
+<p>Unit tests focus on the smallest piece of code, typically a single function, in complete isolation. All external dependencies are “mocked” or avoided. This makes them very fast.</p>
+<p>A good example is <code class="docutils literal notranslate"><span class="pre">tests/test_core.py</span></code>, which tests the <code class="docutils literal notranslate"><span class="pre">increment</span></code> function without depending on any other part of the application.</p>
+</section>
+<section id="integration-tests">
+<h3>Integration Tests<a class="headerlink" href="#integration-tests" title="Link to this heading">¶</a></h3>
+<p>Integration tests verify that different parts of the system work together correctly. They are broader and test the interaction between modules, the filesystem, or external tools.</p>
+<p>Examples in this project include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tests/test_cli.py</span></code>: Tests the integration between the command-line interface and the core application logic.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tests/test_config.py</span></code>: Tests the integration of the configuration module with the filesystem.</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuration-layers">Configuration Layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuration-options">Configuration Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuration-file">Configuration File</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing Strategy</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#unit-and-integration-tests">Unit and Integration Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#ci-workflow-simulation">CI Workflow Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#makefile-tests">Makefile Tests</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="logging.html#structured-logging">Structured Logging</a></li>
-</ul>
-</li>
-</ul>
+</section>
+<section id="running-tests">
+<h3>Running Tests<a class="headerlink" href="#running-tests" title="Link to this heading">¶</a></h3>
+<p>To run the complete test suite, use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">test</span>
+</pre></div>
 </div>
+<p>This command will execute all tests and provide a coverage report, indicating the percentage of the codebase that is covered by tests.</p>
+</section>
+</section>
+<section id="ci-workflow-simulation">
+<h2>CI Workflow Simulation<a class="headerlink" href="#ci-workflow-simulation" title="Link to this heading">¶</a></h2>
+<p>To prevent issues in our CI pipeline, we use <code class="docutils literal notranslate"><span class="pre">act</span></code> to simulate the GitHub Actions workflow locally. This allows us to catch potential problems before they are pushed to the main repository.</p>
+<section id="running-the-local-workflow">
+<h3>Running the Local Workflow<a class="headerlink" href="#running-the-local-workflow" title="Link to this heading">¶</a></h3>
+<p>To run the local CI workflow simulation, use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>workflow
+</pre></div>
+</div>
+<p>This command will execute the entire CI pipeline as defined in <code class="docutils literal notranslate"><span class="pre">.github/workflows/ci.yml</span></code>, including linting, testing, and building the package.</p>
+</section>
+</section>
+<section id="makefile-tests">
+<h2>Makefile Tests<a class="headerlink" href="#makefile-tests" title="Link to this heading">¶</a></h2>
+<p>The project’s <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> itself is tested to ensure that its targets behave as expected. These tests are located in <code class="docutils literal notranslate"><span class="pre">tests/test_makefile.py</span></code>.</p>
+<p>To avoid any side effects on the local development environment, these tests are run in an isolated, temporary directory. This ensures that commands like <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> and <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">distclean</span></code> do not accidentally delete the developer’s virtual environment or other important files.</p>
+</section>
 </section>
 
 </article>
         <aside class="nftt-toc my-3">
+          
+          <div class="my-sm-1 my-lg-0 ps-xl-3 text-muted">
+            <button class="btn btn-link p-lg-0 mb-2 mb-lg-0 text-decoration-none nftt-toc-toggle d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents"
+            >On this page <i class="ms-2 bi bi-chevron-expand"></i></button>
+            <div class="title d-none d-lg-block">
+              <i class="bi bi-file-earmark-text"></i>&nbsp;&nbsp;<span class="small">On this page</span>
+            </div>
+            <div class="collapse nftt-toc-collapse" id="tocContents">
+              <nav id="TableOfContents">
+                <ul>
+<li><a class="reference internal" href="#">Testing Strategy</a><ul>
+<li><a class="reference internal" href="#unit-and-integration-tests">Unit and Integration Tests</a><ul>
+<li><a class="reference internal" href="#unit-tests">Unit Tests</a></li>
+<li><a class="reference internal" href="#integration-tests">Integration Tests</a></li>
+<li><a class="reference internal" href="#running-tests">Running Tests</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ci-workflow-simulation">CI Workflow Simulation</a><ul>
+<li><a class="reference internal" href="#running-the-local-workflow">Running the Local Workflow</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#makefile-tests">Makefile Tests</a></li>
+</ul>
+</li>
+</ul>
+
+              </nav>
+            </div>
+          </div>
           
         </aside>
       </div>
@@ -259,11 +301,20 @@ for details.</p>
     <footer class="nftt-footer">
       <nav id="paginator" class="py-4" aria-label="Documentation navigation">
     <div class="container">
-      <ul class="pagination justify-content-between mb-0"><li class="d-flex page-item ms-auto">
-            <a href="README.html" class="d-flex px-5 align-items-end" rel="next" aria-label="Next page: uvscaff">
+      <ul class="pagination justify-content-between mb-0"><li class="d-flex page-item">
+            <a href="configuration.html" class="d-flex px-5 align-items-end" rel="prev" aria-label="Previous page: Configuration">
+              <span class="prev-page"><i class="bi bi-caret-left"></i></span>
+              <div class="d-none d-sm-flex flex-column">
+                <span class="text-small text-start text-muted">Previous</span>
+                <span class="underline">Configuration</span>
+              </div>
+            </a>
+          </li>
+        <li class="d-flex page-item ms-auto">
+            <a href="logging.html" class="d-flex px-5 align-items-end" rel="next" aria-label="Next page: Logging">
               <div class="d-flex flex-column">
                 <span class="text-small text-end text-start text-muted">Next</span>
-                <span class="underline">uvscaff</span>
+                <span class="underline">Logging</span>
               </div>
               <span class="next-page"><i class="bi bi-caret-right"></i></span>
             </a>

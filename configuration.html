@@ -16,9 +16,9 @@
       <meta name="theme-color" content="#0DCAF0" />
     
     
-      <title>uvscaff documentation &mdash; uvscaff 1.0 documentation</title>
+      <title>Configuration &mdash; uvscaff 1.0 documentation</title>
     
-    <link rel="canonical" href="index" />
+    <link rel="canonical" href="configuration" />
           <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" /><!-- add (1) -->
           <link rel="stylesheet" type="text/css" href="_static/sphinx-nefertiti-default.min.css?v=3139f035" /><!-- add (1) -->
           <link rel="stylesheet" type="text/css" href="_static/fonts/nunito/stylesheet.css?v=abf98f06" /><!-- add (1) -->
@@ -29,7 +29,8 @@
         <link rel="index" title="Index" href="genindex.html" />
         <link rel="search" title="Search" href="search.html" />
         <link rel="top" title="uvscaff 1.0 documentation" href="#" />
-        <link rel="next" title="uvscaff" href="README.html" />
+        <link rel="next" title="Testing Strategy" href="testing.html" />
+        <link rel="prev" title="uvscaff" href="README.html" />
     <style>
       :root {
         --nftt-body-font-family: "Nunito", var(--nftt-font-sans-serif) !important;
@@ -70,7 +71,7 @@
             <i class="bi bi-list"></i>
           </button>
         </div>
-          <a href="#"
+          <a href="index.html"
              class="navbar-brand"
           ><span class="brand-text">uvscaff</span><span class="brand-short-text">uvscaff</span></a>
         
@@ -187,9 +188,9 @@
       <input id="sidebar-filter" type="text" name="filter" class="form-control form-control-sm" placeholder="index filter" aria-label="index filter">
     </div>
     <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">uvscaff</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing Strategy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
 </ul>
@@ -209,48 +210,95 @@
         <article id="content" class="nftt-content" role="main">
           <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Start</a></li>
-    <li class="breadcrumb-item active" aria-current="page">uvscaff documentation</li>
+    <li class="breadcrumb-item"><a href="index.html">Start</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Configuration</li>
   </ol>
 </nav>
-    <section id="uvscaff-documentation">
-<h1>uvscaff documentation<a class="headerlink" href="#uvscaff-documentation" title="Link to this heading">¶</a></h1>
-<p>Add your content using <code class="docutils literal notranslate"><span class="pre">MyST</span></code> syntax. See the
-<a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/">MyST documentation</a>
-for details.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="README.html">uvscaff</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="README.html#how-to-work-on-this-project-for-a-new-developer">How to Work on This Project (For a New Developer)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#how-to-use-this-package-for-a-user">How to Use This Package (For a User)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#makefile-targets">Makefile Targets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#configuration">Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#code-style-and-quality">Code Style and Quality</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuration-layers">Configuration Layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuration-options">Configuration Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuration-file">Configuration File</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing Strategy</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#unit-and-integration-tests">Unit and Integration Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#ci-workflow-simulation">CI Workflow Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#makefile-tests">Makefile Tests</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="logging.html#structured-logging">Structured Logging</a></li>
-</ul>
-</li>
-</ul>
+    <section id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h1>
+<p>The application’s behavior is configured using a layered system that provides a high degree of flexibility. The system uses <a class="reference external" href="https://pydantic.dev/">Pydantic</a> for robust validation and settings management.</p>
+<section id="configuration-layers">
+<h2>Configuration Layers<a class="headerlink" href="#configuration-layers" title="Link to this heading">¶</a></h2>
+<p>Configuration is loaded from the following sources, in order of increasing precedence (later sources override earlier ones):</p>
+<ol class="arabic simple">
+<li><p><strong>Command-Line Arguments</strong>: e.g., <code class="docutils literal notranslate"><span class="pre">--config</span></code> or <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> (highest priority)</p></li>
+<li><p><strong>Environment Variables</strong></p></li>
+<li><p><strong>Global TOML Configuration File</strong></p></li>
+<li><p><strong>Default Values</strong> (lowest priority)</p></li>
+</ol>
+<p>Any setting can be configured via a TOML file or a corresponding environment variable. Environment variables will always override values set in the configuration file.</p>
+</section>
+<section id="configuration-options">
+<h2>Configuration Options<a class="headerlink" href="#configuration-options" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Setting</p></th>
+<th class="head text-left"><p>TOML Key</p></th>
+<th class="head text-left"><p>Environment Variable</p></th>
+<th class="head text-left"><p>CLI Flag</p></th>
+<th class="head text-left"><p>Default Value</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Config Path</strong></p></td>
+<td class="text-left"><p>(none)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">UVSCAFF_CONFIG_PATH</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--config</span></code></p></td>
+<td class="text-left"><p>(OS-specific)</p></td>
+<td class="text-left"><p>Overrides the default path to the <code class="docutils literal notranslate"><span class="pre">config.toml</span></code> file.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Log Level</strong></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">log_level</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">UVSCAFF_LOG_LEVEL</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">-v</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&quot;INFO&quot;</span></code></p></td>
+<td class="text-left"><p>The logging level (<code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Log File</strong></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">log_file</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">UVSCAFF_LOG_FILE</span></code></p></td>
+<td class="text-left"><p>(none)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">null</span></code> (logs to console)</p></td>
+<td class="text-left"><p>The path to a file where logs should be written.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="configuration-file">
+<h2>Configuration File<a class="headerlink" href="#configuration-file" title="Link to this heading">¶</a></h2>
+<p>The application uses the <code class="docutils literal notranslate"><span class="pre">platformdirs</span></code> library to find the appropriate user-level configuration directory for the current operating system (e.g., <code class="docutils literal notranslate"><span class="pre">~/.config/uvscaff</span></code> on Linux, <code class="docutils literal notranslate"><span class="pre">~/Library/Application</span> <span class="pre">Support/uvscaff</span></code> on macOS, or <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;user&gt;\AppData\Roaming\uvscaff</span></code> on Windows).</p>
+<p>To find the exact path for your system, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uvscaff<span class="w"> </span>config<span class="w"> </span>show
+</pre></div>
 </div>
+<p>This command will display the active configuration values and the location where it expects to find a <code class="docutils literal notranslate"><span class="pre">config.toml</span></code> file. A <code class="docutils literal notranslate"><span class="pre">config.toml.example</span></code> file is included in the root of this repository to use as a template.</p>
+</section>
 </section>
 
 </article>
         <aside class="nftt-toc my-3">
+          
+          <div class="my-sm-1 my-lg-0 ps-xl-3 text-muted">
+            <button class="btn btn-link p-lg-0 mb-2 mb-lg-0 text-decoration-none nftt-toc-toggle d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents"
+            >On this page <i class="ms-2 bi bi-chevron-expand"></i></button>
+            <div class="title d-none d-lg-block">
+              <i class="bi bi-file-earmark-text"></i>&nbsp;&nbsp;<span class="small">On this page</span>
+            </div>
+            <div class="collapse nftt-toc-collapse" id="tocContents">
+              <nav id="TableOfContents">
+                <ul>
+<li><a class="reference internal" href="#">Configuration</a><ul>
+<li><a class="reference internal" href="#configuration-layers">Configuration Layers</a></li>
+<li><a class="reference internal" href="#configuration-options">Configuration Options</a></li>
+<li><a class="reference internal" href="#configuration-file">Configuration File</a></li>
+</ul>
+</li>
+</ul>
+
+              </nav>
+            </div>
+          </div>
           
         </aside>
       </div>
@@ -259,11 +307,20 @@ for details.</p>
     <footer class="nftt-footer">
       <nav id="paginator" class="py-4" aria-label="Documentation navigation">
     <div class="container">
-      <ul class="pagination justify-content-between mb-0"><li class="d-flex page-item ms-auto">
-            <a href="README.html" class="d-flex px-5 align-items-end" rel="next" aria-label="Next page: uvscaff">
+      <ul class="pagination justify-content-between mb-0"><li class="d-flex page-item">
+            <a href="README.html" class="d-flex px-5 align-items-end" rel="prev" aria-label="Previous page: uvscaff">
+              <span class="prev-page"><i class="bi bi-caret-left"></i></span>
+              <div class="d-none d-sm-flex flex-column">
+                <span class="text-small text-start text-muted">Previous</span>
+                <span class="underline">uvscaff</span>
+              </div>
+            </a>
+          </li>
+        <li class="d-flex page-item ms-auto">
+            <a href="testing.html" class="d-flex px-5 align-items-end" rel="next" aria-label="Next page: Testing Strategy">
               <div class="d-flex flex-column">
                 <span class="text-small text-end text-start text-muted">Next</span>
-                <span class="underline">uvscaff</span>
+                <span class="underline">Testing Strategy</span>
               </div>
               <span class="next-page"><i class="bi bi-caret-right"></i></span>
             </a>
